@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" style="transform: none">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiNews</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="pic/logo.jpeg" type="image/x-icon" />
+    <link href="https://css.gg/profile.css" rel="stylesheet" />
+    <link rel="stylesheet" href="proj.css" />
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #f1f1f1;
+      }
+
+      /* Center website */
+      .main {
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      h1 {
+        font-size: 50px;
+        word-break: break-all;
+      }
+
+      .row {
+        margin: 10px -16px;
+      }
+
+      /* Add padding BETWEEN each column */
+      .row,
+      .row > .column {
+        padding: 8px;
+      }
+
+      /* Create three equal columns that floats next to each other */
+      .column {
+        float: left;
+        width: 33.33%;
+        display: none; /* Hide all elements by default */
+      }
+
+      /* Clear floats after rows */
+      .row:after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+
+      /* Content */
+      .content {
+        background-color: white;
+        padding: 10px;
+      }
+
+      /* The "show" class is added to the filtered elements */
+      .show {
+        display: block;
+      }
+
+      /* Style the buttons */
+      .btn {
+        border: none;
+        outline: none;
+        padding: 12px 16px;
+        background-color: white;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: #ddd;
+      }
+
+      .btn.active {
+        background-color: #666;
+        color: white;
+      }
+      .SIZE {
+        width: 200px;
+        height: 200px;
+      }
+      .text3 {
+        text-align: center;
+      }
+      #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      #myImg:hover {
+        opacity: 0.7;
+      }
+
+      /* The Modal (background) */
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+      }
+
+      /* Modal Content (image) */
+      .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+      }
+
+      /* Caption of Modal Image */
+      #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+      }
+
+      /* Add Animation */
+      .modal-content,
+      #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+      }
+
+      @-webkit-keyframes zoom {
+        from {
+          -webkit-transform: scale(0);
+        }
+        to {
+          -webkit-transform: scale(1);
+        }
+      }
+
+      @keyframes zoom {
+        from {
+          transform: scale(0);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+
+      /* The Close Button */
+      .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      /* 100% Image Width on Smaller Screens */
+      @media only screen and (max-width: 700px) {
+        .modal-content {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="post-titr">
+      <ul>
+        <a href="http://127.0.0.1:5624/proj.html" class="a">
+          <li class="logobar">DigiNews</li>
+        </a>
+
+        <li class="dropdown">
+          <a href="javascript:void(0)" class="dropbtn" class="a">تکنولوژی</a>
+          <div class="dropdown-content" ">
+          <a
+            href="http://127.0.0.1:5624/mobile.html "
+            target="_blank "
+            class="a"
+            >موبایل</a
+          >
+          <a href="http://127.0.0.1:5624/laptop.html " class="a">لپ تاپ</a>
+          <a href="http://127.0.0.1:5624/tablet.html" class="a">تبلت</a>
+          <a href="http://127.0.0.1:5624/camera.html " class="a">دوربین</a>
+          <a href="http://127.0.0.1:5624/gadgets.html " class="a"
+            >گجت های هوشمند</a
+          >
+        </li>
+        <li class="dropdown">
+          <a href="javascript:void(0) " class="dropbtn" class="a"
+            >نقد و بررسی</a
+          >
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1:5624/mobile-review.html " class="a"
+              >بررسی موبایل</a
+            >
+            <a href="http://127.0.0.1:5624/tablet-review.html " class="a"
+              >بررسی تبلت</a
+            >
+            <a href="http://127.0.0.1:5624/laptop-review.html " class="a"
+              >بررسی لپ تاپ</a
+            >
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="javascript:void(0) " class="dropbtn" class="a">ویدیو</a>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1:5624/onbox.html" class="a">آنباکسینگ</a>
+            <a href="http://127.0.0.1:5624/learn.html " class="a">آموزشی</a>
+            <a href="http://127.0.0.1:5624/video.html " class="a">نگاه نزدیک</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <a href="javascript:void(0) " class="dropbtn">سرگرمی</a>
+          <div class="dropdown-content">
+            <a href="http://127.0.0.1:5624/gamenews.html " class="a"
+              >اخبار سرگرمی</a
+            >
+            <a href="http://127.0.0.1:5624/game.html " class="a">معرفی بازی</a>
+          </div>
+        </li>
+
+        <li>
+          <a href="http://127.0.0.1:5624/about.html" class="a">درباره ما</a>
+        </li>
+        <div class="icon">
+          <li class="dropdown">
+            <a href="javascript:void(0) " class="dropbtn" class="a"
+              ><i class="gg-profile" class="icon"></i
+            ></a>
+            <div class="dropdown-content">
+              <a href="http://127.0.0.1:5624/panel.html " class="a">ورود</a>
+              <a href="http://127.0.0.1:5624/signup.html " class="a">ثبت نام</a>
+            </div>
+          </li>
+
+          <li></li>
+        </div>
+      </ul>
+    </div>
+    <br />
+
+    <!-- MAIN (Center website) -->
+    <div class="main">
+      <h1 style="text-align: CENTER">آلبوم عکس ها</h1>
+      <hr />
+
+      <h2>فیلترها</h2>
+
+      <div id="myBtnContainer">
+        <button class="btn active" onclick="filterSelection('all')">همه</button>
+        <button class="btn" onclick="filterSelection('mobile')">موبایل</button>
+        <button class="btn" onclick="filterSelection('laptop')">لپ تاپ</button>
+        <button class="btn" onclick="filterSelection('tablet')">تبلت</button>
+        <button class="btn" onclick="filterSelection('camera')">دوربین</button>
+        <button class="btn" onclick="filterSelection('gadget')">گجت ها</button>
+      </div>
+
+      <!-- Portfolio Gallery Grid -->
+      <div class="row">
+        <div class="column camera">
+          <div class="content">
+            <img
+              src="pic/album1.png"
+              alt="camera"
+              style="width: 100%; height: 200px"
+            />
+            <h4 class="text3">Nikon Mirrorless Z6</h4>
+          </div>
+        </div>
+        <div class="column mobile">
+          <div class="content">
+            <img
+              id="myImg"
+              src="pic/album7.jpg"
+              alt="mobile"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img01" />
+              <div id="caption"></div>
+            </div>
+            <h4 class="text3">iphon14</h4>
+          </div>
+        </div>
+
+        <div class="column laptop">
+          <div class="content">
+            <img
+              src="pic/macbook-news9.1.jpg"
+              alt="laptop"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Mac Book M2</h4>
+          </div>
+        </div>
+        <div class="column tablet">
+          <div class="content">
+            <img
+              src="pic/Asus ZenPad C 7-tabre12.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Asus ZenPad C7</h4>
+          </div>
+        </div>
+        <div class="column gadgets">
+          <div class="content">
+            <img
+              src="pic/Apple_watch8-newsgad14.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Apple Watch</h4>
+          </div>
+        </div>
+        <div class="column camera">
+          <div class="content">
+            <img
+              src="pic/album2.jpg"
+              alt="Car"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Canon Eos R10</h4>
+          </div>
+        </div>
+        <div class="column mobile">
+          <div class="content">
+            <img
+              src="pic/album8.png"
+              alt="mobile"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Oppo Reno 8Z</h4>
+          </div>
+        </div>
+        <div class="column laptop">
+          <div class="content">
+            <img
+              src="pic/ASUSExpertBookB9-newslap16.jpg"
+              alt="laptop"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">ASUS ExpertBook B9</h4>
+          </div>
+        </div>
+        <div class="column tablet">
+          <div class="content">
+            <img
+              src="pic/galaxytabs6litte-tabvid8.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Galaxy Tabs6 litte</h4>
+          </div>
+        </div>
+        <div class="column gadgets">
+          <div class="content">
+            <img
+              src="pic/apple-ar-newsgad12.jpeg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Apple Ar</h4>
+          </div>
+        </div>
+        <div class="column camera">
+          <div class="content">
+            <img
+              src="pic/album6.jpg"
+              alt="camera"
+              style="width: 100%; height: 200px"
+            />
+            <h4 class="text3">Nikon Z-Fc</h4>
+          </div>
+        </div>
+        <div class="column mobile">
+          <div class="content">
+            <img
+              src="pic/album9.jpg"
+              alt="mobile"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Samsung S22 Ultra</h4>
+          </div>
+        </div>
+        <div class="column laptop">
+          <div class="content">
+            <img
+              src="pic/album14.jpg"
+              alt="laptop"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Honor MagicBook X14</h4>
+          </div>
+        </div>
+        <div class="column tablet">
+          <div class="content">
+            <img
+              src="pic/htc-tablet-newstab14.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">HTC Tablet</h4>
+          </div>
+        </div>
+        <div class="column gadgets">
+          <div class="content">
+            <img
+              src="pic/galaxybads-newsgad8.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Galaxy Bads</h4>
+          </div>
+        </div>
+        <div class="column camera">
+          <div class="content">
+            <img
+              src="pic/album3.jpg"
+              alt="Car"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Panasonic Lumix</h4>
+          </div>
+        </div>
+        <div class="column mobile">
+          <div class="content">
+            <img
+              src="pic/album10.jpg"
+              alt="mobile"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Honor Magic4 Pro</h4>
+          </div>
+        </div>
+        <div class="column laptop">
+          <div class="content">
+            <img
+              src="pic/album15.jpg"
+              alt="laptop"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Huawei MateBook D16</h4>
+          </div>
+        </div>
+        <div class="column tablet">
+          <div class="content">
+            <img
+              src="pic/GalaxyTabS7-tabre5.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Galaxy Tab S7</h4>
+          </div>
+        </div>
+        <div class="column gadgets">
+          <div class="content">
+            <img
+              src="pic/galaxywatch-news8.1.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Galaxy Watch</h4>
+          </div>
+        </div>
+        <div class="column camera">
+          <div class="content">
+            <img
+              src="pic/album5.jpg"
+              alt="Car"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Fujifilm X-H2</h4>
+          </div>
+        </div>
+        <div class="column mobile">
+          <div class="content">
+            <img
+              src="pic/album11.jpg"
+              alt="mobile"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">One Plus 9</h4>
+          </div>
+        </div>
+        <div class="column laptop">
+          <div class="content">
+            <img
+              src="pic/album17.jpg"
+              alt="laptop"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">HP Laptop</h4>
+          </div>
+        </div>
+        <div class="column tablet">
+          <div class="content">
+            <img
+              src="pic/HuaweiMatePadPro-news2.1.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Huawei MatePadPro</h4>
+          </div>
+        </div>
+        <div class="column gadgets">
+          <div class="content">
+            <img
+              src="pic/homepod-newsgad23.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Home Pad</h4>
+          </div>
+        </div>
+        <div class="column camera">
+          <div class="content">
+            <img
+              src="pic/album4.jpg"
+              alt="Car"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Sony Alpha A7</h4>
+          </div>
+        </div>
+        <div class="column mobile">
+          <div class="content">
+            <img
+              src="pic/album12.jpg"
+              alt="mobile"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Google Pixel 7</h4>
+          </div>
+        </div>
+        <div class="column laptop">
+          <div class="content">
+            <img
+              src="pic/album18.jpg"
+              alt="laptop"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Galaxy Book pro 360</h4>
+          </div>
+        </div>
+        <div class="column tablet">
+          <div class="content">
+            <img
+              src="pic/ipadpro-newstab23.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">ipad pro</h4>
+          </div>
+        </div>
+        <div class="column gadgets">
+          <div class="content">
+            <img
+              src="pic/mis2-newsgad10.jpg"
+              alt="tablet"
+              style="width: 100%; height: 200px"
+              class="SIZE"
+            />
+            <h4 class="text3">Mi Projector 2S</h4>
+          </div>
+        </div>
+
+        <!-- END GRID -->
+      </div>
+
+      <!-- END MAIN -->
+    </div>
+
+    <script src="js/album.js"></script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="shortcut icon" href="logo.jpg" type="image/x-icon">
+    <link href='https://css.gg/user.css' rel='stylesheet'>
+    <link rel="stylesheet" href="panel.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title">ورود</div>
+        <div class="content">
+        <form name="loginform" method="post" action="target.html">
+          <div class="user-details">
+            <div class="input-box">
+             &nbsp <input type="text" placeholder="نام کاربری" id="username" required><br/><br/>
+             &nbsp <input type="password" placeholder="رمز عبور" id="password" required>  &nbsp
+            <div class="button">
+            <input type="button" onclick="login(loginform)" value="login"  id="register"/>
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+    </div>
+
+</body>
+<script>
+    function login(loginform)
+    {
+        if(loginform.username.value && loginform.password.value)
+        {
+            var username=document.getElementById("username").value;
+  
+            document.write('<html><body><h1><center>')
+            document.write("welcome" + " ");
+            document.write(username);
+            document.write('</center></h1></body></html>');
+  
+  
+        }
+        else
+        alert("please enter your user name or password");
+    }
+  
+  
+  </script>
+
+
+</html>

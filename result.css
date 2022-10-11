@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: irsans, Geneva, sans-serif;
+  }
+  body{
+    height: 100vh;
+   display: flex;
+    justify-content: center; 
+    align-items: center;
+    padding: 10px;
+    background-image: linear-gradient(to left, #43aa8b,  #f9c74f);
+    direction: rtl;
+  }
+.regester{
+    background: #04724d;
+    padding: 100px;
+    color: #ec7345;
+    font-weight: 600;
+    font-size: xx-large;
+}
+
+
